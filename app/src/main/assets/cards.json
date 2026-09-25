@@ -1,0 +1,113 @@
+[
+  {
+    "id": 1,
+    "name": "Intermarché",
+    "imageName": "intermarche",
+    "code": "3250123456789012345",
+    "format": "CODE_128",
+    "isGs1": true
+  },
+  {
+    "id": 2,
+    "name": "Gamm Vert",
+    "imageName": "gammvert",
+    "code": "2970123456789",
+    "format": "EAN_13",
+    "isGs1": false
+  },
+  {
+    "id": 3,
+    "name": "sourire",
+    "imageName": "entrepot",
+    "code": "100001234567",
+    "format": "UPC_A",
+    "isGs1": false
+  },
+  {
+    "id": 4,
+    "name": "decathlon",
+    "imageName": "decathlon",
+    "code": "2090123456789",
+    "format": "EAN_13",
+    "isGs1": false
+  },
+  {
+    "id": 5,
+    "name": "IKEA Family",
+    "imageName": "ikea",
+    "code": "6201234567890123456",
+    "isGs1": false
+  },
+  {
+    "id": 6,
+    "name": "Botanic",
+    "imageName": "botanic",
+    "code": "PB00007",
+    "format": "CODE_39",
+    "isGs1": false
+  },
+  {
+    "id": 7,
+    "name": "Casino",
+    "imageName": "casino",
+    "code": "9201234567890",
+    "format": "CODE_128",
+    "isGs1": false
+  },
+  {
+    "id": 8,
+    "name": "Kiabi",
+    "imageName": "kiabi",
+    "code": "000123456789",
+    "format": "UPC_A",
+    "isGs1": false
+  },
+  {
+    "id": 9,
+    "name": "Gaumont Pathé",
+    "imageName": "gaumont",
+    "code": "8401234567890",
+    "format": "EAN_13",
+    "isGs1": false
+  },
+  {
+    "id": 10,
+    "name": "Vert Baudet",
+    "imageName": "vertbaudet",
+    "code": "3120012345678901234",
+    "format": "CODE_128",
+    "isGs1": false
+  },
+  {
+    "id": 11,
+    "name": "Villaverdé",
+    "imageName": "villaverde",
+    "code": "3660123456789",
+    "format": "EAN_13",
+    "isGs1": false
+  },
+  {
+    "id": 12,
+    "name": "Dafy",
+    "imageName": "dafy",
+    "code": "9001234567890",
+    "format": "EAN_13",
+    "isGs1": false
+  },
+  {
+    "id": 13,
+    "name": "Picard",
+    "imageName": "picard",
+    "code": "9901234567890",
+    "format": "EAN_13",
+    "isGs1": false
+  },
+  {
+    "id": 14,
+    "name": "Foire Fouille",
+    "imageName": "foire_fouille",
+    "code": "cp9200123456789",
+    "format": "CODE_128",
+    "isGs1": false
+  }
+]
