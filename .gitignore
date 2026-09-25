@@ -1,6 +1,6 @@
 *.iml
 .gradle
-cards.json
+**/cards.json
 /local.properties
 /.idea/caches
 /.idea/libraries
