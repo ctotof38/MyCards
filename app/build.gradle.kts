@@ -32,12 +32,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt")
             )
         }
-        debug {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt")
-            )
+        create("staging") {
+            initWith(getByName("release"))
+            matchingFallbacks.add("release")
+            signingConfig = signingConfigs.getByName("debug")
+            applicationIdSuffix = ".staging"
         }
     }
     compileOptions {
@@ -52,7 +51,12 @@ android {
 androidComponents {
     onVariants(selector().withBuildType("debug")) { variant ->
         variant.outputs.forEach { output ->
-            output.outputFileName.set("carte-fidelite.apk")
+            output.outputFileName.set("carte-fidelite-debug.apk")
+        }
+    }
+    onVariants(selector().withBuildType("staging")) { variant ->
+        variant.outputs.forEach { output ->
+            output.outputFileName.set("carte-fidelite-staging.apk")
         }
     }
 }
