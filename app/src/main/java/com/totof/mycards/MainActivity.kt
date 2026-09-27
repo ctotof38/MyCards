@@ -128,8 +128,30 @@ fun saveCards(context: Context, cards: List<LoyaltyCard>) {
 @Composable
 fun getDrawableId(name: String): Int {
     val context = LocalContext.current
-    return remember(name) {
-        context.resources.getIdentifier(name, "drawable", context.packageName)
+    val cleanName = name.substringBeforeLast(".")
+    return remember(cleanName) {
+        val resId = when (cleanName) {
+            "bandeau" -> R.drawable.bandeau
+            "botanic" -> R.drawable.botanic
+            "card_icon" -> R.drawable.card_icon
+            "casino" -> R.drawable.casino
+            "castorama" -> R.drawable.castorama
+            "dafy" -> R.drawable.dafy
+            "decatclub" -> R.drawable.decatclub
+            "decathlon" -> R.drawable.decathlon
+            "entrepot" -> R.drawable.entrepot
+            "foire_fouille" -> R.drawable.foire_fouille
+            "gammvert" -> R.drawable.gammvert
+            "gaumont" -> R.drawable.gaumont
+            "ikea" -> R.drawable.ikea
+            "intermarche" -> R.drawable.intermarche
+            "kiabi" -> R.drawable.kiabi
+            "picard" -> R.drawable.picard
+            "vertbaudet" -> R.drawable.vertbaudet
+            "villaverde" -> R.drawable.villaverde
+            else -> 0
+        }
+        if (resId != 0) resId else context.resources.getIdentifier(cleanName, "drawable", context.packageName)
     }
 }
 
@@ -362,21 +384,36 @@ fun CardDetail(card: LoyaltyCard, modifier: Modifier = Modifier) {
                     Image(
                         bitmap = it.asImageBitmap(),
                         contentDescription = "Code généré pour ${card.name}",
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp),
                         contentScale = ContentScale.Fit
                     )
                 }
             }
             
-            // On affiche toujours le texte du code
+            // Taille de police adaptative selon la longueur du code pour garantir 1 seule ligne
+            val fontSize = when {
+                card.code.length > 18 -> 15.sp
+                card.code.length > 14 -> 18.sp
+                card.code.length > 10 -> 22.sp
+                else -> 26.sp
+            }
+
+            // On affiche toujours le texte du code sur une seule ligne
             Text(
                 text = card.code,
-                modifier = Modifier.padding(top = 16.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp, start = 16.dp, end = 16.dp),
                 style = MaterialTheme.typography.headlineSmall.copy(
                     color = Color.Black,
                     fontWeight = FontWeight.Bold,
-                    letterSpacing = 2.sp
+                    fontSize = fontSize,
+                    letterSpacing = 1.sp
                 ),
+                maxLines = 1,
+                softWrap = false,
                 textAlign = TextAlign.Center
             )
         }
@@ -393,6 +430,7 @@ fun generateBarcode(content: String, format: BarcodeFormat?, isGs1: Boolean): Bi
         val cleanedContent = content.replace(" ", "")
         
         val hints = mutableMapOf<EncodeHintType, Any>()
+        
         var finalContent = cleanedContent
         
         if (isGs1 && format == BarcodeFormat.CODE_128) {

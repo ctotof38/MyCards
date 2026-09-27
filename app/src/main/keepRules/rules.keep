@@ -1,12 +1,8 @@
-# Add project specific R8 rules here.
-# AGP will combine all keep rule files in src/main/keepRules to pass to R8
-#
-# For more details, see
-#   https://d.android.com/r/tools/r8/keep-rules
+# Regles R8 pour la minification et le shrinking
+# Conserver le modèle de données utilisé par Gson
+-keep class com.totof.mycards.LoyaltyCard { *; }
+-keepclassmembers class com.totof.mycards.LoyaltyCard { *; }
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Conserver les enums ZXing utilises pour le format des codes-barres
+-keep class com.google.zxing.BarcodeFormat { *; }
+-keepclassmembers enum com.google.zxing.BarcodeFormat { *; }
