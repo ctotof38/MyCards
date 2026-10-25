@@ -1,6 +1,6 @@
 This Android app manages loyalty cards without ads. 
 
-There are sample cards defined by default in ./app/src/main/assets/cards.json. You must change the codes before recompiling.
+This app lets you scan or select a photo from your gallery—an image for the card or an image with a barcode.
 
 You can reorder the cards based on your priorities.
 
