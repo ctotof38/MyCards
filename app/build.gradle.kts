@@ -75,6 +75,7 @@ dependencies {
     implementation(libs.zxing.android.embedded)
     implementation(libs.google.code.gson)
     implementation(libs.mlkit.barcode.scanning)
+    implementation(libs.androidx.exifinterface)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
